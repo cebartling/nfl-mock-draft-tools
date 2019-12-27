@@ -29,11 +29,20 @@ gem 'rack-cors'
 
 # Adds extra functionality to ActiveRecord for PostgreSQL.
 # https://github.com/georgekaraszi/ActiveRecordExtended
-gem 'active_record_extended'
+#gem 'active_record_extended'
 
 # Adds UNION functionality to ActiveRecord.
 # https://github.com/brianhempel/active_record_union
-gem 'active_record_union'
+#gem 'active_record_union'
+
+# Finds the next or previous record(s) relative to the current one efficiently using keyset pagination,
+# e.g. for navigation or infinite scroll.
+# https://github.com/glebm/order_query
+#gem 'order_query', '~> 0.5.0'
+
+# The SchemaPlus family of gems provide various extensions and enhancements to ActiveRecord >= 4.2.
+# https://github.com/SchemaPlus/schema_plus
+#gem "schema_plus"
 
 
 group :development, :test do
