@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: nfl_mock_draft_rails_production
-  username: nfl_mock_draft_rails
+  username: mockdraft
   password: <%= ENV['NFL_MOCK_DRAFT_RAILS_DATABASE_PASSWORD'] %>
