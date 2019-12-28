@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Navigation from "./components/Navigation";
+import HomeView from "./views/HomeView";
+import DraftsView from "./views/DraftsView";
+import TeamsView from "./views/TeamsView";
+import StickyFooter from "./components/StickyFooter";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Navigation/>
+
+            <main role="main" className="container-fluid mt-5">
+                <Switch>
+                    <Route exact path="/">
+                        <HomeView/>
+                    </Route>
+                    <Route path="/teams">
+                        <TeamsView/>
+                    </Route>
+                    <Route path="/drafts">
+                        <DraftsView/>
+                    </Route>
+                </Switch>
+            </main>
+
+            <StickyFooter/>
+        </Router>
+    );
 }
 
 export default App;
