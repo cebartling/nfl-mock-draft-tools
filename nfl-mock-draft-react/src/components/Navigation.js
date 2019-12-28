@@ -6,7 +6,7 @@ const Navigation = () => {
     return (
         <header>
             <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a className="navbar-brand" href="#">NFL Mock Drafts</a>
+                <Link to="/" className="navbar-brand">NFL Mock Drafts</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
