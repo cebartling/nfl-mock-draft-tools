@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Navigation from "./components/Navigation";
 import HomeView from "./views/HomeView";
-import DraftsView from "./views/DraftsView";
+import DraftsView from "./drafts/DraftsView";
 import TeamsView from "./teams/TeamsView";
 import StickyFooter from "./components/StickyFooter";
 import {ApolloProvider} from "@apollo/client";
