@@ -10,9 +10,12 @@ const TeamsView = () => {
 
 
     const renderTeams = (teams) => {
-        return teams.map(({id, name}) => (
-            <div key={id}>
-                {name}
+        return teams.map(({id, name, svgLogoUrl}) => (
+            <div className="row" key={id}>
+                <div className="col-12">
+                    <img src={`${process.env.REACT_APP_ASSETS_BASE}${svgLogoUrl}`} height="80" width="80"
+                         alt={name}/> {name}
+                </div>
             </div>
         ));
     }

@@ -6,6 +6,7 @@ const TEAMS_QUERY = gql`
             id
             name
             slug
+            svgLogoUrl
             createdAt
             updatedAt
         }
