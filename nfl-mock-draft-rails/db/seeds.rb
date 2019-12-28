@@ -8,7 +8,7 @@
 
 team_attributes = [
   {name: 'Atlanta Falcons', slug: 'atlanta-falcons', svg_logo_url: '/svg/atlanta-falcons.svg'},
-  {name: 'Arizona Cardinal', slug: 'arizona-cardinals', svg_logo_url: '/svg/arizona-cardinals.svg'},
+  {name: 'Arizona Cardinals', slug: 'arizona-cardinals', svg_logo_url: '/svg/arizona-cardinals.svg'},
   {name: 'Baltimore Ravens', slug: 'baltimore-ravens', svg_logo_url: '/svg/baltimore-ravens.svg'},
   {name: 'Buffalo Bills', slug: 'buffalo-bills', svg_logo_url: '/svg/buffalo-bills.svg'},
   {name: 'Carolina Panthers', slug: 'carolina-panthers', svg_logo_url: '/svg/carolina-panthers.svg'},
@@ -44,8 +44,21 @@ team_attributes = [
 team_attributes.each do |attrs|
   unless Team.find_by_slug(attrs[:slug])
     created = Team.create(attrs)
-    puts "Created team: #{created.inspect}"
+    puts "Created team: #{created.name}"
   end
 end
 
 puts "#{Team.count} teams available"
+
+annual_drafts = [
+  {year: 2020, draft_date: Date.strptime('2020-04-23')}
+]
+
+annual_drafts.each do |attrs|
+  unless AnnualDraft.find_by_year(attrs[:year])
+    created = AnnualDraft.create(attrs)
+    puts "Created annual draft: #{created.year}"
+  end
+end
+
+puts "#{AnnualDraft.count} annual drafts available"
