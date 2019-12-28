@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_28_161108) do
+ActiveRecord::Schema.define(version: 2019_12_28_220302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 2019_12_28_161108) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["year"], name: "index_annual_drafts_on_year", unique: true
   end
+
+# Could not dump table "draft_prospects" because of following StandardError
+#   Unknown type 'football_position_enum' for column 'position'
 
   create_table "teams", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", limit: 60, null: false
