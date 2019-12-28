@@ -19,8 +19,7 @@ ActiveRecord::Schema.define(version: 2019_12_27_174335) do
   create_table "teams", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", limit: 60, null: false
     t.string "slug", limit: 60, null: false
-    t.string "svg_logo_url"
-    t.string "png_logo_url"
+    t.string "svg_logo_url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_teams_on_name", unique: true
