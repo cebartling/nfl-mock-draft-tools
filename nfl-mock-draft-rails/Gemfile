@@ -44,6 +44,9 @@ gem 'rack-cors'
 # https://github.com/SchemaPlus/schema_plus
 #gem "schema_plus"
 
+# graphql-ruby
+# https://github.com/rmosolgo/graphql-ruby
+gem 'graphql'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
