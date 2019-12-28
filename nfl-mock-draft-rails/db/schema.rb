@@ -37,4 +37,5 @@ ActiveRecord::Schema.define(version: 2019_12_28_220302) do
     t.index ["slug"], name: "index_teams_on_slug", unique: true
   end
 
+  add_foreign_key "draft_prospects", "annual_drafts"
 end
