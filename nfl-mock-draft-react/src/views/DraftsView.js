@@ -4,7 +4,7 @@ const DraftsView = (props) => {
 
     return (
         <div>
-            Drafts view
+            <h1>Drafts</h1>
         </div>
     );
 }

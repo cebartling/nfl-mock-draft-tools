@@ -4,7 +4,7 @@ const TeamsView = (props) => {
 
     return (
         <div>
-            Teams view
+            <h1>Teams</h1>
         </div>
     );
 }

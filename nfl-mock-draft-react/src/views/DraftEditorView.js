@@ -4,7 +4,7 @@ const DraftEditorView = (props) => {
 
     return (
         <div>
-            Draft Editor view
+            <h1>Edit your draft</h1>
         </div>
     );
 }
