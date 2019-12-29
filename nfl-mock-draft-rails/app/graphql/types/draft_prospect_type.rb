@@ -7,7 +7,7 @@ module Types
     field :college_year, Types::CollegeYearType, null: false
     field :family_name, String, null: false
     field :given_name, String, null: false
-    field :middle_name, String, null: false
+    field :middle_name, String, null: true
     field :position, Types::FootballPositionType, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
