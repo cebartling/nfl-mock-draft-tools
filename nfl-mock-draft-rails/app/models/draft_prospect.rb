@@ -31,4 +31,11 @@ class DraftProspect < ApplicationRecord
     #prospects = prospects.paginate(page: params[:page]) if params[:page]
     prospects
   end
+
+  scope :all_by_annual_draft, -> (params) do
+    prospects = all
+    prospects = prospects.where(annual_draft_id: params[:annual_draft_id]) unless params[:annual_draft_id].nil?
+    prospects
+  end
+
 end
