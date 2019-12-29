@@ -21,4 +21,14 @@
 
 class DraftProspect < ApplicationRecord
   belongs_to :annual_draft
+
+  scope :search, -> (params) do
+    prospects = all
+    prospects = prospects.where(given_name: params[:given_name]) if params[:given_name]
+    prospects = prospects.where(family_name: params[:family_name]) if params[:family_name]
+    prospects = prospects.where(middle_name: params[:middle_name]) if params[:middle_name]
+    prospects = prospects.where(college: params[:college]) if params[:college]
+    #prospects = prospects.paginate(page: params[:page]) if params[:page]
+    prospects
+  end
 end

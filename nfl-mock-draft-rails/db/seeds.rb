@@ -47,18 +47,27 @@ team_attributes.each do |attrs|
     puts "Created team: #{created.name}"
   end
 end
-
 puts "#{Team.count} teams available"
 
-annual_drafts = [
-  {year: 2020, draft_date: Date.strptime('2020-04-23')}
+
+annual_draft_attrs = {year: 2020, draft_date: Date.strptime('2020-04-23')}
+
+annual_draft = AnnualDraft.find_by_year(annual_draft_attrs[:year])
+unless annual_draft
+  annual_draft = AnnualDraft.create(annual_draft_attrs)
+  puts "Created annual draft: #{annual_draft.year}"
+end
+puts "#{AnnualDraft.count} annual drafts available"
+
+
+draft_prospect_attrs = [
+  {given_name: 'Chase', family_name: 'Young', middle_name: nil, birth_date: '1999-04-14', college: 'Ohio State University', college_year: 'JUNIOR', position: 'EDGE_RUSHER', annual_draft: annual_draft}
 ]
 
-annual_drafts.each do |attrs|
-  unless AnnualDraft.find_by_year(attrs[:year])
-    created = AnnualDraft.create(attrs)
-    puts "Created annual draft: #{created.year}"
+draft_prospect_attrs.each do |attrs|
+  unless DraftProspect.search(attrs).count > 0
+    created = DraftProspect.create(attrs)
+    puts "Created draft prospect: #{created.family_name}, #{created.given_name} #{created.middle_name}"
   end
 end
-
-puts "#{AnnualDraft.count} annual drafts available"
+puts "#{DraftProspect.count} draft prospects available"
