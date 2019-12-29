@@ -1,8 +1,9 @@
 import React from 'react';
 import {useQuery} from "@apollo/client";
 import DRAFTS_QUERY from "./DraftsQuery";
+import {Link} from "react-router-dom";
 
-const DraftsView = (props) => {
+const DraftsView = () => {
     const {loading, error, data} = useQuery(DRAFTS_QUERY);
 
     if (loading) return <p>Loading...</p>;
@@ -11,10 +12,12 @@ const DraftsView = (props) => {
 
     const renderDrafts = (drafts) => {
         return drafts.map(({id, year, draftDate}) => {
+            const draftProspectRouterLink = `/drafts/${id}/draftProspects`;
+
             return (
                 <div className="row" key={id}>
                     <div className="col-12">
-                        {year} {draftDate}
+                        <Link to={draftProspectRouterLink} className="btn btn-large btn-primary">{year} Draft</Link>
                     </div>
                 </div>
             );
