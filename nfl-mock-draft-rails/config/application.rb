@@ -34,6 +34,8 @@ module NflMockDraftRails
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    config.active_record.schema_format = :sql
+
     # Configure rack-cors gem
     config.middleware.insert_before 0, Rack::Cors do
       allow do
