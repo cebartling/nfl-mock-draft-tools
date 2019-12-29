@@ -20,4 +20,5 @@
 #
 
 class DraftProspect < ApplicationRecord
+  belongs_to :annual_draft
 end

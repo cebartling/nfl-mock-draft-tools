@@ -14,4 +14,5 @@
 #
 
 class AnnualDraft < ApplicationRecord
+  has_many :draft_prospects
 end

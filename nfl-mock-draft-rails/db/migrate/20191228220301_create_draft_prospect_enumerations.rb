@@ -2,15 +2,15 @@ class CreateDraftProspectEnumerations < ActiveRecord::Migration[6.0]
   def up
     say_with_time 'Creating football_position_enum enumeration...' do
       ActiveRecord::Base.connection.execute <<~SQL
-        CREATE TYPE football_position_enum AS ENUM ('Quarterback', 'Running back', 'Fullback', 'Tight end', 'Wide receiver', 
-          'Offensive tackle', 'Offensive guard', 'Offensive center', 'Defensive end', 'Defensive tackle', 'Edge rusher', 
-          'Outside linebacker', 'Inside linebacker', 'Cornerback', 'Safety', 'Punter', 'Kicker', 'Special teams');
+        CREATE TYPE football_position_enum AS ENUM ('QUARTERBACK', 'RUNNING_BACK', 'FULLBACK', 'TIGHT_END', 'WIDE_RECEIVER', 
+          'OFFENSIVE_TACKLE', 'OFFENSIVE_GUARD', 'OFFENSIVE_CENTER', 'DEFENSIVE_END', 'DEFENSIVE_TACKLE', 'EDGE_RUSHER', 
+          'OUTSIDE_LINEBACKER', 'INSIDE_LINEBACKER', 'CORNERBACK', 'SAFETY', 'PUNTER', 'KICKER', 'SPECIAL_TEAMS');
       SQL
     end
 
     say_with_time 'Creating college_year_enum enumeration...' do
       ActiveRecord::Base.connection.execute <<~SQL
-        CREATE TYPE college_year_enum AS ENUM ('Freshman', 'Sophomore', 'Junior', 'Senior', 'Graduate');
+        CREATE TYPE college_year_enum AS ENUM ('FRESHMAN', 'SOPHOMORE', 'JUNIOR', 'SENIOR', 'GRADUATE');
       SQL
     end
   end
