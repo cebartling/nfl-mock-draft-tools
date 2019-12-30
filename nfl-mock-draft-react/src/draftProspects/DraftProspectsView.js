@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {useQuery} from "@apollo/client";
 import DRAFT_PROSPECTS_QUERY from "./DraftProspectsQuery";
 import CollegeYearText from "../components/CollegeYearText";
+import FootballPositionText from "../components/FootballPositionText";
 
 const DraftProspectsView = () => {
     const {id} = useParams();
@@ -22,7 +23,7 @@ const DraftProspectsView = () => {
                 <td>{givenName}</td>
                 <td>{college}</td>
                 <td><CollegeYearText collegeYear={collegeYear}/></td>
-                <td>{position}</td>
+                <td><FootballPositionText position={position}/></td>
             </tr>
         );
     };
