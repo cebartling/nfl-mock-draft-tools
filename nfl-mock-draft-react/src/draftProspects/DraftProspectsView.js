@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import {useQuery} from "@apollo/client";
 import DRAFT_PROSPECTS_QUERY from "./DraftProspectsQuery";
 
-const DraftProspectsView = (props) => {
+const DraftProspectsView = () => {
     const {id} = useParams();
     const {loading, error, data} = useQuery(DRAFT_PROSPECTS_QUERY, {
         variables: {
@@ -14,28 +14,35 @@ const DraftProspectsView = (props) => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
 
-    const renderDraftProspects = (draftProspects) => {
-        return draftProspects.map(({id, familyName, givenName, position}) => {
-            return (
-                <div className="row" key={id}>
-                    <div className="col-2">
-                        {familyName}
-                    </div>
-                    <div className="col-2">
-                        {givenName}
-                    </div>
-                    <div className="col-1">
-                        {position}
-                    </div>
-                </div>
-            );
-        });
+    const renderDraftProspect = ({id, familyName, givenName, position, college, collegeYear}) => {
+        return (
+            <tr key={id}>
+                <td>{familyName}</td>
+                <td>{givenName}</td>
+                <td>{college}</td>
+                <td>{collegeYear}</td>
+                <td>{position}</td>
+            </tr>
+        );
     };
 
     return (
         <div>
             <h1>Draft Prospects</h1>
-            {renderDraftProspects(data.draftProspects)}
+            <table className="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Family name</th>
+                    <th>Given name</th>
+                    <th>College</th>
+                    <th>Year in College</th>
+                    <th>Position</th>
+                </tr>
+                </thead>
+                <tbody>
+                {data.draftProspects.map(renderDraftProspect)}
+                </tbody>
+            </table>
         </div>
     );
 }
