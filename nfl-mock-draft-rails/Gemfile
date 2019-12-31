@@ -50,7 +50,7 @@ gem 'coffee-rails'
 
 # graphql-ruby
 # https://github.com/rmosolgo/graphql-ruby
-gem 'graphql'
+gem 'graphql', '>=1.10-dev'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
