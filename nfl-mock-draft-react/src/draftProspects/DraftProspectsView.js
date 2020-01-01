@@ -1,5 +1,5 @@
 import React from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useQuery} from "@apollo/client";
 import DRAFT_PROSPECTS_QUERY from "./DraftProspectsQuery";
 import CollegeYearText from "../components/CollegeYearText";
@@ -17,10 +17,11 @@ const DraftProspectsView = () => {
     if (error) return <p>Error :(</p>;
 
     const renderDraftProspect = ({id, familyName, givenName, position, college, collegeYear}) => {
+        const draftProspectEditorViewUrl = `/draftProspects/${id}`;
+
         return (
             <tr key={id}>
-                <td>{familyName}</td>
-                <td>{givenName}</td>
+                <td><Link to={draftProspectEditorViewUrl}>{familyName}, {givenName}</Link></td>
                 <td>{college}</td>
                 <td><CollegeYearText collegeYear={collegeYear}/></td>
                 <td><FootballPositionText position={position}/></td>
@@ -31,11 +32,10 @@ const DraftProspectsView = () => {
     return (
         <div>
             <h1>Draft Prospects</h1>
-            <table className="table table-bordered table-hover">
+            <table className="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>Family name</th>
-                    <th>Given name</th>
+                    <th>Full name</th>
                     <th>College</th>
                     <th>Year in College</th>
                     <th>Position</th>
