@@ -1,20 +1,28 @@
 import React from 'react';
 import {useParams} from "react-router-dom";
 import {useQuery} from '@apollo/client';
+import {useHistory} from "react-router-dom";
 import DRAFT_PROSPECT_READ_QUERY from "./DraftProspectReadQuery";
-import FootballPositionText from "../components/FootballPositionText";
-import FormInputText from "../components/FormInputText";
-import EnhancedButton from "../components/EnhancedButton";
+import FootballPositionText from "../../components/FootballPositionText";
+import FormInputText from "../../components/FormInputText";
+import EnhancedButton from "../../components/EnhancedButton";
+import LoadingWidget from "../../components/LoadingWidget";
+import ErrorsWidget from "../../components/ErrorsWidget";
 
 const DraftProspectEditorView = (props) => {
-    const {id} = useParams();
-    const {loading, error, data} = useQuery(DRAFT_PROSPECT_READ_QUERY, {variables: {id}});
+    const {draftId, draftProspectId} = useParams();
+    const history = useHistory();
+    const {loading, error, data} = useQuery(DRAFT_PROSPECT_READ_QUERY, {
+        variables: {
+            id: draftProspectId
+        }
+    });
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :(</p>;
+    if (loading) return <LoadingWidget/>;
+    if (error) return <ErrorsWidget/>;
 
     const onClickCancelButton = (evt) => {
-        console.info("----> onClickCancelButton fired", evt);
+        history.push(`/drafts/${draftId}/draftProspects`)
     };
 
     const onClickSubmitButton = (evt) => {

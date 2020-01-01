@@ -3,8 +3,8 @@ import {Route, Switch} from "react-router-dom";
 import HomeView from "./views/HomeView";
 import TeamsView from "./teams/TeamsView";
 import DraftsView from "./drafts/DraftsView";
-import DraftProspectsView from "./draftProspects/DraftProspectsView";
-import DraftProspectEditorView from "./draftProspects/DraftProspectEditorView";
+import DraftProspectsView from "./draftProspects/list/DraftProspectsView";
+import DraftProspectEditorView from "./draftProspects/detail/DraftProspectEditorView";
 
 const RouterSwitch = () => {
     return (
@@ -18,10 +18,10 @@ const RouterSwitch = () => {
             <Route exact path="/drafts">
                 <DraftsView/>
             </Route>
-            <Route exact path="/drafts/:id/draftProspects">
+            <Route exact path="/drafts/:draftId/draftProspects">
                 <DraftProspectsView/>
             </Route>
-            <Route exact path="/draftProspects/:id">
+            <Route exact path="/drafts/:draftId/draftProspects/:draftProspectId">
                 <DraftProspectEditorView/>
             </Route>
         </Switch>

@@ -13,7 +13,10 @@ const EnhancedButton = ({onClickHandler, buttonText, buttonClassName}) => {
     };
 
     return (
-        <button className={buttonClassNameBase} onClick={onClickHandlerBase}>{buttonText}</button>
+        <button className={buttonClassNameBase}
+                onClick={onClickHandlerBase}>
+            {buttonText}
+        </button>
     );
 };
 
@@ -22,6 +25,5 @@ EnhancedButton.propTypes = {
     onClickHandler: PropTypes.func.isRequired,
     buttonClassName: PropTypes.string,
 };
-
 
 export default EnhancedButton;

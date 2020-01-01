@@ -2,14 +2,14 @@ import React from 'react';
 import {Link, useParams} from "react-router-dom";
 import {useQuery} from "@apollo/client";
 import DRAFT_PROSPECTS_QUERY from "./DraftProspectsQuery";
-import CollegeYearText from "../components/CollegeYearText";
-import FootballPositionText from "../components/FootballPositionText";
+import CollegeYearText from "../../components/CollegeYearText";
+import FootballPositionText from "../../components/FootballPositionText";
 
 const DraftProspectsView = () => {
-    const {id} = useParams();
+    const {draftId} = useParams();
     const {loading, error, data} = useQuery(DRAFT_PROSPECTS_QUERY, {
         variables: {
-            annualDraftId: id
+            annualDraftId: draftId
         }
     });
 
@@ -17,7 +17,7 @@ const DraftProspectsView = () => {
     if (error) return <p>Error :(</p>;
 
     const renderDraftProspect = ({id, familyName, givenName, position, college, collegeYear}) => {
-        const draftProspectEditorViewUrl = `/draftProspects/${id}`;
+        const draftProspectEditorViewUrl = `/drafts/${draftId}/draftProspects/${id}`;
 
         return (
             <tr key={id}>
