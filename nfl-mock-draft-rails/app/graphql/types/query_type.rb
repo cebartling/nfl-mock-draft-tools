@@ -6,6 +6,9 @@ module Types
     field :draft_prospects, [Types::DraftProspectType], null: false, description: 'Draft prospects for an annual draft.'do
       argument :annual_draft_id, ID, required: true
     end
+    field :draft_prospect, Types::DraftProspectType, null: true, description: 'Draft prospect by ID.'do
+      argument :id, ID, required: true
+    end
 
     def test_field
       "Hello World!"
@@ -21,6 +24,10 @@ module Types
 
     def draft_prospects(params)
       DraftProspect.all_by_annual_draft(params)
+    end
+
+    def draft_prospect(id:)
+      DraftProspect.find(id)
     end
   end
 end
