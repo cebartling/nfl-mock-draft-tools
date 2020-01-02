@@ -30,6 +30,6 @@ const RouterSwitch = () => {
             </Route>
         </Switch>
     );
-}
+};
 
 export default RouterSwitch;
