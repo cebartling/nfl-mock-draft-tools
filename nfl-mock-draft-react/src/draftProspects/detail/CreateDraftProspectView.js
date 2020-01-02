@@ -5,7 +5,6 @@ import DraftProspectEditorForm from "./DraftProspectEditorForm";
 const CreateDraftProspectView = () => {
     const {draftId} = useParams();
 
-
     return (
         <div>
             <h1>Create new draft prospect</h1>
