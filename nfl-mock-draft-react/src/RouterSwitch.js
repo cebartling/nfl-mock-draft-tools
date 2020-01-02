@@ -2,8 +2,8 @@ import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import HomeView from "./views/HomeView";
 import TeamsView from "./teams/TeamsView";
-import DraftsView from "./drafts/DraftsView";
 import DraftProspectsRoutes from "./draftProspects/DraftProspectsRoutes";
+import DraftsRoutes from "./drafts/DraftsRoutes";
 
 const RouterSwitch = () => {
     return (
@@ -14,9 +14,7 @@ const RouterSwitch = () => {
             <Route exact path="/teams">
                 <TeamsView/>
             </Route>
-            <Route exact path="/drafts">
-                <DraftsView/>
-            </Route>
+            <DraftsRoutes/>
             <DraftProspectsRoutes/>
         </Switch>
     );
