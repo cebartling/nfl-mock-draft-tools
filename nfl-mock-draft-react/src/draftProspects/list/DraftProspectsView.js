@@ -17,21 +17,24 @@ const DraftProspectsView = () => {
     if (error) return <p>Error :(</p>;
 
     const renderDraftProspect = ({id, familyName, givenName, position, college, collegeYear}) => {
-        const draftProspectEditorViewUrl = `/drafts/${draftId}/draftProspects/${id}`;
+        const editDraftProspectViewUrl = `/drafts/${draftId}/draftProspects/${id}`;
 
         return (
             <tr key={id}>
-                <td><Link to={draftProspectEditorViewUrl}>{familyName}, {givenName}</Link></td>
+                <td><Link to={editDraftProspectViewUrl}>{familyName}, {givenName}</Link></td>
                 <td>{college}</td>
                 <td><CollegeYearText collegeYear={collegeYear}/></td>
                 <td><FootballPositionText position={position}/></td>
             </tr>
         );
     };
-
     return (
         <div>
             <h1>Draft Prospects</h1>
+            <div className="mb-md-3 mt-md-1">
+                <Link to={`/drafts/${draftId}/draftProspects/new`}
+                      className="btn btn-success">New draft prospect</Link>
+            </div>
             <table className="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
@@ -47,6 +50,6 @@ const DraftProspectsView = () => {
             </table>
         </div>
     );
-}
+};
 
 export default DraftProspectsView;
