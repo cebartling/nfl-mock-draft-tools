@@ -4,7 +4,7 @@ import HomeView from "./views/HomeView";
 import TeamsView from "./teams/TeamsView";
 import DraftsView from "./drafts/DraftsView";
 import DraftProspectsView from "./draftProspects/list/DraftProspectsView";
-import DraftProspectEditorView from "./draftProspects/detail/DraftProspectEditorView";
+import EditDraftProspectView from "./draftProspects/detail/EditDraftProspectView";
 
 const RouterSwitch = () => {
     return (
@@ -22,7 +22,7 @@ const RouterSwitch = () => {
                 <DraftProspectsView/>
             </Route>
             <Route exact path="/drafts/:draftId/draftProspects/:draftProspectId">
-                <DraftProspectEditorView/>
+                <EditDraftProspectView/>
             </Route>
         </Switch>
     );

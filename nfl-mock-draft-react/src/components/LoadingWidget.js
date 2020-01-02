@@ -3,7 +3,9 @@ import React from 'react';
 
 const LoadingWidget = () => {
     return (
-        <p>Loading...</p>
+        <div className="alert alert-info mt-2">
+            Loading...please be patient!
+        </div>
     );
 };
 

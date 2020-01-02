@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FormInputText = ({name, value, labelText, inputHelpText, placeholderText, inputCssClassName}) => {
+const FormInputText = ({name, value, labelText, inputHelpText, placeholderText, inputCssClassName, onChange}) => {
     const inputName = `${name}Input`;
     const inputHelpName = `${name}InputHelp`;
     const textFieldCssClassName = inputCssClassName ? inputCssClassName : 'col-sm-3';
@@ -17,7 +17,8 @@ const FormInputText = ({name, value, labelText, inputHelpText, placeholderText, 
                        id={inputName}
                        aria-describedby={inputHelpName}
                        placeholder={placeholderText}
-                       value={inputValue}/>
+                       value={inputValue}
+                       onChange={onChange}/>
                 <small id={inputHelpName} className="form-text text-muted">{inputHelpText}</small>
             </div>
         </div>
@@ -27,6 +28,7 @@ const FormInputText = ({name, value, labelText, inputHelpText, placeholderText, 
 FormInputText.propTypes = {
     name: PropTypes.string.isRequired,
     labelText: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
     value: PropTypes.string,
     inputHelpText: PropTypes.string,
     placeholderText: PropTypes.string,

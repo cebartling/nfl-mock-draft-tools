@@ -4,9 +4,11 @@ import React from 'react';
 const ErrorsWidget = () => {
 
     return (
-        <p>Error :(</p>
+        <div className="alert alert-danger mt-2">
+            <strong>Damn!</strong> An error occurred.
+        </div>
     );
-}
+};
 
 ErrorsWidget.propTypes = {};
 
