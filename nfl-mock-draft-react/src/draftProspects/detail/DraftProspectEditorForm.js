@@ -1,8 +1,15 @@
 import React, {useState} from 'react';
 import PropTypes from "prop-types";
 import {useHistory} from "react-router-dom";
+import {useQuery} from "@apollo/client";
+import {map} from "lodash";
+import LoadingWidget from "../../components/LoadingWidget";
+import ErrorsWidget from "../../components/ErrorsWidget";
+import FormSelect from "../../components/FormSelect";
 import FormInputText from "../../components/FormInputText";
 import EnhancedButton from "../../components/EnhancedButton";
+import COLLEGE_YEAR_ENUM_VALUES_QUERY from "../../graphql/queries/CollegeYearEnumValuesQuery";
+import FOOTBALL_POSITION_ENUM_VALUES_QUERY from "../../graphql/queries/FootballPositionEnumValuesQuery";
 
 const DraftProspectEditorForm = (props) => {
     const {draftProspect, draftId} = props;
@@ -14,6 +21,27 @@ const DraftProspectEditorForm = (props) => {
     const [college, setCollege] = useState(draftProspect ? draftProspect.college : '');
     const [collegeYear, setCollegeYear] = useState(draftProspect ? draftProspect.collegeYear : '');
     const [position, setPosition] = useState(draftProspect ? draftProspect.position : '');
+    const {
+        loading: collegeYearLoading,
+        error: collegeYearError,
+        data: collegeYearData
+    } = useQuery(COLLEGE_YEAR_ENUM_VALUES_QUERY);
+    const {
+        loading: footballPositionLoading,
+        error: footballPositionError,
+        data: footballPositionData
+    } = useQuery(FOOTBALL_POSITION_ENUM_VALUES_QUERY);
+
+    if (collegeYearLoading || footballPositionLoading) return <LoadingWidget/>;
+    if (collegeYearError || footballPositionError) return <ErrorsWidget/>;
+
+    const {'__type': {enumValues: collegeYearEnumValues}} = collegeYearData;
+    const collegeYearEnumMaps = map(collegeYearEnumValues, item => ({value: item.name, label: item.description}));
+    const {'__type': {enumValues: footballPositionEnumValues}} = footballPositionData;
+    const footballPositionEnumMaps = map(footballPositionEnumValues, item => ({
+        value: item.name,
+        label: item.description
+    }));
 
     const onClickCancelButton = () => {
         history.push(`/drafts/${draftId}/draftProspects`)
@@ -54,14 +82,16 @@ const DraftProspectEditorForm = (props) => {
                                labelText={'College'}
                                inputCssClassName={'col-sm-5'}
                                onChange={e => setCollege(e.target.value)}/>
-                <FormInputText name={'collegeYear'}
-                               value={collegeYear}
-                               labelText={'Year in college'}
-                               onChange={e => setCollegeYear(e.target.value)}/>
-                <FormInputText name={'position'}
-                               value={position}
-                               labelText={'Position'}
-                               onChange={e => setPosition(e.target.value)}/>
+                <FormSelect name={'collegeYear'}
+                            value={collegeYear}
+                            labelText={'Year in college'}
+                            valueLabelMaps={collegeYearEnumMaps}
+                            onChange={e => setCollegeYear(e.target.value)}/>
+                <FormSelect name={'position'}
+                            value={position}
+                            labelText={'Position'}
+                            valueLabelMaps={footballPositionEnumMaps}
+                            onChange={e => setPosition(e.target.value)}/>
                 <hr/>
                 <EnhancedButton onClickHandler={onClickCancelButton}
                                 buttonText={'Cancel'}
