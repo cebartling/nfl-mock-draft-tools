@@ -8,6 +8,7 @@ import ErrorsWidget from "../../components/ErrorsWidget";
 import FormSelect from "../../components/FormSelect";
 import FormInputText from "../../components/FormInputText";
 import EnhancedButton from "../../components/EnhancedButton";
+import FormDateInput from "../../components/FormDateInput";
 import COLLEGE_YEAR_ENUM_VALUES_QUERY from "../../graphql/queries/CollegeYearEnumValuesQuery";
 import FOOTBALL_POSITION_ENUM_VALUES_QUERY from "../../graphql/queries/FootballPositionEnumValuesQuery";
 
@@ -73,10 +74,10 @@ const DraftProspectEditorForm = (props) => {
                                value={middleName}
                                labelText={'Middle name'}
                                onChange={e => setMiddleName(e.target.value)}/>
-                <FormInputText name={'birthDate'}
+                <FormDateInput name={'birthDate'}
                                value={birthDate}
                                labelText={'Birth date'}
-                               onChange={e => setBirthDate(e.target.value)}/>
+                               onChange={newMoment => setBirthDate(newMoment.format('YYYY-MM-DD'))}/>
                 <FormInputText name={'college'}
                                value={college}
                                labelText={'College'}
