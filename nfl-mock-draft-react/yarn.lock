@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@apollo/client@3.0.0-beta.16":
-  version "3.0.0-beta.16"
-  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.0.0-beta.16.tgz#5452a8748ed6cb3fa0ce5450589cfc2005cbeedc"
-  integrity sha512-g5cIMnTwvUCpO4SlBXKXH3vsKI7ie355KC4rZ2Gthon4lZ9GbSf1W8i77ihARElNdybrSuzEVBpenNi+XumVcg==
+"@apollo/client@3.0.0-beta.19":
+  version "3.0.0-beta.19"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.0.0-beta.19.tgz#dfe35cb8d144039359a4a2e9af516be671e8b995"
+  integrity sha512-5yDOAlMAu2QYb0M7JDv2Y1Ho5XGMJVDYaiMmpz+u0kL1bhDB2X9VjsbmUvLEvr315kV+LdQc+qxs7VCCAmuHIg==
   dependencies:
     "@types/zen-observable" "^0.8.0"
     "@wry/equality" "^0.1.9"
@@ -1294,10 +1294,10 @@
     "@testing-library/dom" "^6.11.0"
     "@types/testing-library__react" "^9.1.2"
 
-"@testing-library/user-event@8.0.2":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-8.0.2.tgz#d68096d531594a66ecbf0b56993253fcc032064b"
-  integrity sha512-BjAO+JpR7ay9CARUm6UqeCOPJjNYeupM7VyWeVzLZqBmu5qMSs/jCvFoFJarxdX9zhSwygkTjZWGRtEqmjUGPA==
+"@testing-library/user-event@8.0.3":
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-8.0.3.tgz#c3e304d2692b797ff0e3ced53c0597d341bb868b"
+  integrity sha512-ALoIj6GzxN0UzFiudSwENy2yTD1xHDW+KtuOch5xuqRgQr0AxGB8z+EQBxT6zlWgAoLGN8hmYxTTGRoQSOZtlg==
 
 "@types/babel__core@^7.1.0":
   version "7.1.3"
